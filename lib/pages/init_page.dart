@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_elyon_ccari/pages/home_page.dart';
 import 'package:youtube_elyon_ccari/ui/general/colors.dart';
 
 class initPage extends StatefulWidget {
@@ -12,7 +13,7 @@ class _initPageState extends State<initPage> {
   int _currentIndex = 0;
 
   List<Widget> _pages = [
-    Center(child: Text("Principal")),
+  HomePage(),
     Center(child: Text("Shorts")),
     Center(child: Text("Agregar")),
     Center(child: Text("Suscriptores")),
