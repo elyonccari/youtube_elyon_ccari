@@ -51,7 +51,7 @@ class ItemVideoWidget extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              "Mario Bross . 34.5 M de vistas hace 2 años",
+              "Elyon ccari chillihuani | 34.5 M de vistas hace 2 años",
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
 

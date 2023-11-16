@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_elyon_ccari/services/api_service.dart';
 import 'package:youtube_elyon_ccari/ui/general/colors.dart';
 import 'package:youtube_elyon_ccari/ui/general/widgets/item_filter_widget.dart';
 import 'package:youtube_elyon_ccari/ui/general/widgets/item_video_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  APIService _apiService =APIService();
 
   @override
   Widget build(BuildContext context) {
+
+    _apiService.getVideos();
     
     return SingleChildScrollView(
       child: Padding(
