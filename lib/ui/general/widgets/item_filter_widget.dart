@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:youtube_elyon_ccari/ui/general/colors.dart';
 
@@ -8,10 +7,10 @@ class ItemFilterWidget extends StatelessWidget {
 
   const ItemFilterWidget({
     required this.text,
-    required this.isSelected , // Añade un valor predeterminado
+    this.isSelected = false, // Agrega un valor predeterminado
   });
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(right: 10.0),
@@ -20,8 +19,12 @@ class ItemFilterWidget extends StatelessWidget {
         labelStyle: TextStyle(
           color: isSelected ? kBrandPrimaryColor : Colors.white,
         ),
-        label: Text(text),
+        label: Text(
+          text,
+          style: TextStyle(fontSize: 14.0), // Ajusta el tamaño del texto según tus necesidades
+        ),
       ),
     );
   }
 }
+

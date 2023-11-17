@@ -2,23 +2,36 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:youtube_elyon_ccari/models/video_model.dart';
+import 'package:youtube_elyon_ccari/utils/constants.dart';
 
-class APIService{
-  Future<List<VideoModel>> getVideos() async{
-    List<VideoModel> videosModel =[];
+class APIService {
+  Future<List<VideoModel>> getVideos() async {
+    List<VideoModel> videosModel = [];
 
-    String _path = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyATttRibbPlurZIZmQBAPKGQEF6Zvr-omE&maxResults=20&regionCode=PE&q=linkin park";
+    String _path =
+        "$pathProduction/search?part=snippet&key=$apiKey&maxResults=20&regionCode=PE";
+        
     Uri _uri = Uri.parse(_path);
 
-    http.Response response = await http.get(_uri);
+    try {
+      http.Response response = await http.get(_uri);
 
-   if(response.statusCode == 200){
-    Map<String, dynamic> myMap = json.decode(response.body); 
-    List videos = myMap["items"];
-    print(videos);
-    videosModel = videos.map((e) => VideoModel.fromJson(e)).toList();
-    return videosModel;
+      if (response.statusCode == 200) {
+        Map<String, dynamic> myMap = json.decode(response.body);
+        List videos = myMap["items"];
+        print(videos);
+        videosModel =
+            videos.map((e) => VideoModel.fromJson(e["snippet"])).toList();
+        return videosModel;
+      } else {
+    
+        print("Error: ${response.statusCode}");
+        return [];
       }
-      return videosModel;
+    } catch (error) {
+     
+      print("Error: $error");
+      return [];
+    }
   }
 }

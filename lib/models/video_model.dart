@@ -1,4 +1,5 @@
 
+
 class VideoModel {
     String kind;
     String etag;
@@ -6,10 +7,10 @@ class VideoModel {
     Snippet snippet;
 
     VideoModel({
-       required this.kind,
-       required this.etag,
-       required this.id,
-       required this.snippet,
+        required this.kind,
+        required this.etag,
+        required this.id,
+        required this.snippet,
     });
 
     factory VideoModel.fromJson(Map<String, dynamic> json) => VideoModel(
@@ -32,8 +33,8 @@ class Id {
     String videoId;
 
     Id({
-       required this.kind,
-       required this.videoId,
+        required this.kind,
+        required this.videoId,
     });
 
     factory Id.fromJson(Map<String, dynamic> json) => Id(
@@ -58,14 +59,14 @@ class Snippet {
     DateTime publishTime;
 
     Snippet({
-       required this.publishedAt,
-       required this.channelId,
-       required this.title,
-       required this.description,
-       required this.thumbnails,
-       required this.channelTitle,
-       required this.liveBroadcastContent,
-       required this.publishTime,
+        required this.publishedAt,
+        required this.channelId,
+        required this.title,
+        required this.description,
+        required this.thumbnails,
+        required this.channelTitle,
+        required this.liveBroadcastContent,
+        required this.publishTime,
     });
 
     factory Snippet.fromJson(Map<String, dynamic> json) => Snippet(
@@ -97,9 +98,9 @@ class Thumbnails {
     Default high;
 
     Thumbnails({
-       required this.thumbnailsDefault,
-       required this.medium,
-       required this.high,
+        required this.thumbnailsDefault,
+        required this.medium,
+        required this.high,
     });
 
     factory Thumbnails.fromJson(Map<String, dynamic> json) => Thumbnails(
@@ -121,9 +122,9 @@ class Default {
     int height;
 
     Default({
-       required this.url,
-       required this.width,
-       required this.height,
+        required this.url,
+        required this.width,
+        required this.height,
     });
 
     factory Default.fromJson(Map<String, dynamic> json) => Default(

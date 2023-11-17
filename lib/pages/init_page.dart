@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:youtube_elyon_ccari/pages/home_page.dart';
 import 'package:youtube_elyon_ccari/ui/general/colors.dart';
 
-class initPage extends StatefulWidget {
-  const initPage({super.key});
+class InitPage extends StatefulWidget {
+  const InitPage({Key? key}) : super(key: key);
 
   @override
-  State<initPage> createState() => _initPageState();
+  State<InitPage> createState() => _InitPageState();
 }
 
-class _initPageState extends State<initPage> {
+class _InitPageState extends State<InitPage> {
   int _currentIndex = 0;
 
   List<Widget> _pages = [
-  HomePage(),
+    HomePage(),
     Center(child: Text("Shorts")),
     Center(child: Text("Agregar")),
     Center(child: Text("Suscriptores")),
     Center(child: Text("Biblioteca")),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +43,7 @@ class _initPageState extends State<initPage> {
             onPressed: () {},
             icon: Stack(
               clipBehavior: Clip.none,
-              children:[
+              children: [
                 Icon(
                   Icons.notifications_none,
                   color: Colors.white,
@@ -56,16 +57,15 @@ class _initPageState extends State<initPage> {
                       shape: BoxShape.circle,
                       color: Colors.red,
                     ),
-                    child: Text("5+",style: TextStyle(fontSize: 12.0),),
+                    child: Text(
+                      "5+",
+                      style: TextStyle(fontSize: 12.0),
+                    ),
                   ),
                 ),
-              ]
-
+              ],
             ),
-            ),
-              
-            
-    
+          ),
           IconButton(
             onPressed: () {},
             icon: Icon(
@@ -89,53 +89,55 @@ class _initPageState extends State<initPage> {
       ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: kBrandPrimaryColor,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white70,
-          selectedFontSize: 12.0,
-          unselectedFontSize: 12.0,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
-          onTap: (int value) {
+        backgroundColor: kBrandPrimaryColor,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        selectedFontSize: 12.0,
+        unselectedFontSize: 12.0,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (int value) {
+          setState(() {
             _currentIndex = value;
-            setState(() {});
-          },
-          items: [
-            BottomNavigationBarItem(
-              label: "Principal",
-              icon: Icon(
-                Icons.home_filled,
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: "Principal",
+            icon: Icon(
+              Icons.home_filled,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: "Short",
+            icon: Icon(
+              Icons.play_arrow_outlined,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: "",
+            icon: Container(
+              margin: EdgeInsets.only(top: 4.0),
+              child: const Icon(
+                Icons.add_circle_outline,
+                size: 35.0,
               ),
             ),
-            BottomNavigationBarItem(
-              label: "Short",
-              icon: Icon(
-                Icons.play_arrow_outlined,
-              ),
+          ),
+          BottomNavigationBarItem(
+            label: "Suscriptores",
+            icon: Icon(
+              Icons.subscriptions_rounded,
             ),
-            BottomNavigationBarItem(
-              label: "",
-              icon: Container(
-                margin: EdgeInsets.only(top: 4.0),
-                child: const Icon(
-                  Icons.add_circle_outline,
-                  size: 35.0,
-                ),
-              ),
+          ),
+          BottomNavigationBarItem(
+            label: "Biblioteca",
+            icon: Icon(
+              Icons.video_collection_rounded,
             ),
-            BottomNavigationBarItem(
-              label: "Suscriptores",
-              icon: Icon(
-                Icons.subscriptions_rounded,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Biblioteca",
-              icon: Icon(
-                Icons.video_collection_rounded,
-              ),
-            ),
-          ]),
+          ),
+        ],
+      ),
     );
   }
 }
